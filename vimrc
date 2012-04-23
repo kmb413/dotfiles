@@ -32,7 +32,7 @@ set ignorecase
 set smartcase
 set number                     
 set pastetoggle=<F2>
-set mouse=a
+" set mouse=a
 set foldenable
 set foldmarker={,}
 set cursorline
