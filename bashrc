@@ -2,6 +2,14 @@
 export EDITOR=vim
 export PS1="[\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]]\$ "
 
+#sync rcFiles
+(
+    cd ~/rcFiles
+	git pull -q
+	 exit
+)& disown
+
+
 #program shortcuts
 alias bashmod="vim ~/.bashrc"
 alias bashsave="source ~/.bashrc"
