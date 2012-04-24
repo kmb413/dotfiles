@@ -2,6 +2,9 @@
 #unbind C-b
 #set -g prefix C-a
 
+#scrolling in tmux
+setw -g mode-mouse on
+
 #urxvt tab like window switching (-n: no prior escape seq)
 bind -n S-down new-window
 bind -n S-left prev
