@@ -15,6 +15,7 @@ alias bashmod="vim ~/.bashrc"
 alias bashsave="source ~/.bashrc"
 alias vmod="vim ~/.vimrc"
 alias xmod="vim ~/.xinitrc"
+alias lock="xscreensaver-command -lock"
 
 #aliases for ls
 alias ls="ls --color=auto"
