@@ -29,7 +29,7 @@ alias ll="ls -lh"
 
 #aliases for random ops
 alias cc="clear"
-alias sudos="sudo -Es"
+alias sudo="sudo -E"
 alias kojibuild="koji build centos5-rutgers-staging"
 alias kojibuild6="koji build centos6-rutgers-staging"
 

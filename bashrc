@@ -30,7 +30,7 @@ alias ll="ls -lh"
 
 #aliases for random ops
 alias cc="clear"
-alias sudos="sudo -Es"
+alias sudo="sudo -E"
 
 #aliases for directory navigation
 alias ..="cd .."
