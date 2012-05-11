@@ -36,7 +36,9 @@ set pastetoggle=<F2>
 set foldenable
 set foldmarker={,}
 set cursorline
-highlight CursorLine cterm=bold
+set cursorcolumn
+highlight CursorLine cterm=bold ctermbg=blue
+highlight CursorColumn cterm=none ctermbg=blue
 cnoremap vb ConqueTermVSplit<Space>bash<cr>
 cnoremap sb ConqueTermSplit<Space>bash<cr>
 map nt :NERDTree .<cr>
