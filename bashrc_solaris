@@ -1,4 +1,5 @@
 #export statements
+export PATH="/usr/local/gnu/bin:$PATH"
 export EDITOR=vim
 export PS1="[\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]]\$ "
 
@@ -43,3 +44,8 @@ alias facade="ssh facade.rutgers.edu"
 alias ziti="ssh ziti.rutgers.edu"
 alias ravioli="ssh ravioli.rutgers.edu"
 alias sauron="ssh sauron.rutgers.edu"
+
+function upload () {
+	find ~/rpmbuild/ -name $1*.rpm | xargs rpm --resign
+	scp $(find ~/rpmbuild/ -name $1*.rpm) rpm:/rpm/CHECK_PEND.$2
+}
