@@ -38,12 +38,13 @@ then
 	echo 'Linking bashrc'
 	ln -s $f/bashrc ~/.bashrc
 else
-	ln -s bashrc_$1 ~/.bashrc
+	echo "Linking bashrc_$1"
+	ln -s $f/bashrc_$1 ~/.bashrc
 fi
 ln -s ~/.bashrc ~/.bash_profile
 ln -s $f/vimrc ~/.vimrc
 ln -s $f/gitconfig ~/.gitconfig
-ln -s $f/tmux.conf ~/.tmux.conf
+ln -s $f/tmux.conf ~/.tmux_config
 echo "Installing vim inkpot theme"
 mkdir -p ~/.vim/colors
 ln -s $f/inkpot.vim ~/.vim/colors/inkpot.vim
