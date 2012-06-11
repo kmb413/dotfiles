@@ -24,27 +24,31 @@ fi
 
 pushd rcFiles/ > /dev/null
 
-f="`dirname \"$0\"`"              # relative
-f="`( cd \"$f\" && pwd )`"  # absolutized and normalized
+f=`pwd`
 if [ -z "$f" ] ; then
   # error; for some reason, the path is not accessible
   # to the script (e.g. permissions re-evaled after suid)
   exit 1  # fail
 fi
-echo "$f"
 
 if [ "$1" == "" ]
 then
 	echo 'Linking bashrc'
 	ln -s $f/bashrc ~/.bashrc
 else
-	echo "Linking bashrc_$1"
-	ln -s $f/bashrc_$1 ~/.bashrc
+	if [ -f $f/bashrc_$1 ]
+	then
+		echo "Linking bashrc_$1"
+		ln -s $f/bashrc_$1 ~/.bashrc
+	else
+		echo "bashrc_$1 does not exist"
+		exit 2
+	fi
 fi
 ln -s ~/.bashrc ~/.bash_profile
 ln -s $f/vimrc ~/.vimrc
 ln -s $f/gitconfig ~/.gitconfig
-ln -s $f/tmux.conf ~/.tmux_config
+ln -s $f/tmux_config ~/.tmux.conf
 echo "Installing vim inkpot theme"
 mkdir -p ~/.vim/colors
 ln -s $f/inkpot.vim ~/.vim/colors/inkpot.vim
