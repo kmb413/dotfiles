@@ -22,7 +22,7 @@ then
 	rm .tmux.conf
 fi
 
-popd > /dev/null
+pushd rcFiles/ > /dev/null
 
 f="`dirname \"$0\"`"              # relative
 f="`( cd \"$f\" && pwd )`"  # absolutized and normalized
@@ -48,4 +48,8 @@ ln -s $f/tmux.conf ~/.tmux_config
 echo "Installing vim inkpot theme"
 mkdir -p ~/.vim/colors
 ln -s $f/inkpot.vim ~/.vim/colors/inkpot.vim
+
+popd > /dev/null
+popd > /dev/null
+
 exit 0
