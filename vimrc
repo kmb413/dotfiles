@@ -38,7 +38,7 @@ set pastetoggle=<F2>
 set foldenable
 set foldmarker={,}
 if &diff
-	colorscheme desert
+	colorscheme inkpot
 else
 	colorscheme default
 endif
