@@ -1,6 +1,7 @@
 #export statements
 export EDITOR=vim
 export PS1="[\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]]\$ \[\033[01;31m\]❤ \[\e[m\]"
+export TERM='xterm-256color'
 
 #sync rcFiles
 (

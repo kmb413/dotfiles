@@ -1,4 +1,6 @@
-version 6.0
+"256 colors
+set t_Co=256
+
 if &cp | set nocp | endif
 let s:cpo_save=&cpo
 set cpo&vim
@@ -35,6 +37,11 @@ set pastetoggle=<F2>
 " set mouse=a
 set foldenable
 set foldmarker={,}
+if &diff
+	colorscheme desert
+else
+	colorscheme default
+endif
 set cursorline
 set cursorcolumn
 highlight CursorLine cterm=bold ctermbg=blue
@@ -45,4 +52,3 @@ map nt :NERDTree .<cr>
 imap jj <Esc>`^
 autocmd FileType make setlocal noexpandtab
 autocmd FileType s set ft=gas
-let &t_Co=256
