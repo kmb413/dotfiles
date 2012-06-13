@@ -19,7 +19,7 @@ alias xmod="vim ~/.xinitrc"
 alias lock="xscreensaver-command -lock"
 
 #aliases for ls
-alias ls="ls --color=auto"
+alias ls="ls --color=always"
 alias lsa="ls -a"
 alias lsd="ls --color=always -alh | grep ^d"
 alias lf="ls --color=always -lh | grep ^d"

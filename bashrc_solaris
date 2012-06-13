@@ -18,7 +18,7 @@ alias vmod="vim ~/.vimrc"
 alias xmod="vim ~/.xinitrc"
 
 #aliases for ls
-alias ls="/usr/local/gnu/bin/ls -h --color=auto"
+alias ls="/usr/local/gnu/bin/ls -h --color=always"
 alias lsa="ls -a"
 alias lsd="ls --color=always -alh | grep ^d"
 alias lf="ls --color=always -lh | grep ^d"
