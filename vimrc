@@ -39,6 +39,8 @@ set foldenable
 set foldmarker={,}
 if &diff
 	colorscheme inkpot
+	highlight Normal ctermbg=none
+	highlight String ctermbg=none
 else
 	colorscheme default
 endif
@@ -46,7 +48,6 @@ set cursorline
 set cursorcolumn
 highlight CursorLine cterm=bold ctermbg=17
 highlight CursorColumn cterm=none ctermbg=17
-highlight Normal ctermbg=none
 cnoremap vb ConqueTermVSplit<Space>bash<cr>
 cnoremap sb ConqueTermSplit<Space>bash<cr>
 map nt :NERDTree .<cr>
