@@ -44,8 +44,8 @@ else
 endif
 set cursorline
 set cursorcolumn
-highlight CursorLine cterm=bold ctermbg=blue
-highlight CursorColumn cterm=none ctermbg=blue
+highlight CursorLine cterm=bold ctermbg=17
+highlight CursorColumn cterm=none ctermbg=17
 highlight Normal ctermbg=none
 cnoremap vb ConqueTermVSplit<Space>bash<cr>
 cnoremap sb ConqueTermSplit<Space>bash<cr>
