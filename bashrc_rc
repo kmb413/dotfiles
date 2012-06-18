@@ -1,6 +1,7 @@
 #export statements
 export EDITOR=vim
 export TERM='xterm-256color'
+export PATH="$PATH:/sbin"
 
 parse_git_branch() {
 	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
