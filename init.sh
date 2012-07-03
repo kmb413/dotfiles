@@ -22,7 +22,7 @@ then
 	rm .tmux.conf
 fi
 
-pushd rcFiles/ > /dev/null
+pushd dotfiles/ > /dev/null
 
 f=`pwd`
 if [ -z "$f" ] ; then
