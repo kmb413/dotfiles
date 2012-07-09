@@ -9,6 +9,7 @@ ui = auto
 [alias]
    bless = merge --no-ff --log --no-commit
    co = checkout
-   br = checkout -b
+   br = branch
    ci = commit
    unstage = reset
+   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
