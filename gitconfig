@@ -11,5 +11,6 @@ ui = auto
    co = checkout
    br = branch
    ci = commit
+   st = status
    unstage = reset
    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
