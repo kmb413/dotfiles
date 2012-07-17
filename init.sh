@@ -49,6 +49,7 @@ ln -s ~/.bashrc ~/.bash_profile
 ln -s $f/vimrc ~/.vimrc
 ln -s $f/gitconfig ~/.gitconfig
 ln -s $f/tmux_config ~/.tmux.conf
+ln -s $f/ssh_config ~/.ssh/config
 echo "Installing vim inkpot theme"
 mkdir -p ~/.vim/colors
 ln -s $f/inkpot.vim ~/.vim/colors/inkpot.vim
