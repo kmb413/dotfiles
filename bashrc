@@ -47,20 +47,44 @@ nonzero_return() {
 	fi
 }
 
+ISROOT=""
+
+function isroot() {
+	if id | cut -d' ' -f1 | grep -iq 'root'; then
+		ISROOT=true
+	else
+		ISROOT=false
+	fi
+}
+isroot
+
+function user_col() {
+	if [ "$ISROOT" == "true" ]; then
+		echo -ne "\033[38;5;1;01m"
+	else
+		echo -ne "\033[01;32m"
+	fi
+}
+
 #Russ PS1
 #PS1="\n$TIMECOL\@ $USERCOL \u $ATCOL@ $HOSTCOL\h $PATHCOL \w $RETURNCOL\`nonzero_return\`$BRANCHCOL \`parse_git_branch\`\`parse_git_dirty\` $NC\n\\$ "
 #PS1="[\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]] \`parse_git_branch\`\`parse_git_dirty\` \$ \[\033[01;31m\]❤ \[\e[m\]"
 #export PS1="[\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]] \`parse_git_branch\`\`parse_git_dirty\` \$ \[\033[01;31m\]\`nonzero_return\` \[\e[m\]"
-export PS1="[\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]] \`parse_git_branch\`\`parse_git_dirty\` \$ \[\033[01;31m\]\`nonzero_return\` \[\e[m\]"
+#export PS1="[\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]] \`parse_git_branch\`\`parse_git_dirty\` \$ \[\033[01;31m\]\`nonzero_return\` \[\e[m\]"
+export PS1="[\[`user_col`\]\u\[\033[00m\]\[\033[01;32m\]@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]] \`parse_git_branch\`\`parse_git_dirty\` \$ \[\033[01;31m\]\`nonzero_return\` \[\e[m\]"
 
 
 
 #sync dotfiles
-(
-	cd ~/dotfiles
+function syncdot() {
+	pushd ~/dotfiles > /dev/null
 	git pull -q
-	exit
-)& disown
+	popd > /dev/null
+}
+
+if [ "$ISROOT" == "false" ]; then
+	syncdot
+fi
 
 
 #program shortcuts
