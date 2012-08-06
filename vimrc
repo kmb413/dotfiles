@@ -43,6 +43,7 @@ if &diff
 	highlight String ctermbg=none
 else
 	colorscheme default
+	highlight Search ctermbg=3 ctermfg=15
 endif
 set cursorline
 set cursorcolumn
