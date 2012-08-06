@@ -1,14 +1,90 @@
 #export statements
 export EDITOR=vim
-export PS1="[\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]]\$ \[\033[01;31m\]❤ \[\e[m\]"
 export TERM='xterm-256color'
+export PATH="$PATH:/sbin"
+
+parse_git_branch() {
+	TMPRET=$?
+	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
+	return $TMPRET
+}
+
+function parse_git_dirty {
+	TMPRET=$?
+	status=`git status 2> /dev/null`
+	dirty=`echo -n "${status}" 2> /dev/null | grep -q "modified:" 2> /dev/null; echo "$?"`
+	untracked=`echo -n "${status}" 2> /dev/null | grep -q "Untracked files" 2> /dev/null; echo "$?"`
+	ahead=`echo -n "${status}" 2> /dev/null | grep -q "Your branch is ahead of" 2> /dev/null; echo "$?"`
+	newfile=`echo -n "${status}" 2> /dev/null | grep -q "new file:" 2> /dev/null; echo "$?"`
+	renamed=`echo -n "${status}" 2> /dev/null | grep -q "renamed:" 2> /dev/null; echo "$?"`
+	bits=''
+	if [ "${dirty}" == "0" ]; then
+		bits="${bits}⚡"
+	fi
+	if [ "${untracked}" == "0" ]; then
+		bits="${bits}?"
+	fi
+	if [ "${newfile}" == "0" ]; then
+		bits="${bits}+"
+	fi
+	if [ "${ahead}" == "0" ]; then
+		bits="${bits}*"
+	fi
+	if [ "${renamed}" == "0" ]; then
+		bits="${bits}>"
+	fi
+	echo "${bits}"
+	return $TMPRET
+}
+
+nonzero_return() {
+	RETVAL=$?
+	if [ $RETVAL -ne 0 ]
+	then
+		echo "⏎$RETVAL"
+	else
+		echo "❤"
+	fi
+}
+
+ISROOT=""
+
+function isroot() {
+	if id | cut -d' ' -f1 | grep -iq 'root'; then
+		ISROOT=true
+	else
+		ISROOT=false
+	fi
+}
+isroot
+
+function user_col() {
+	if [ "$ISROOT" == "true" ]; then
+		echo -ne "\033[38;5;1;01m"
+	else
+		echo -ne "\033[01;32m"
+	fi
+}
+
+#Russ PS1
+#PS1="\n$TIMECOL\@ $USERCOL \u $ATCOL@ $HOSTCOL\h $PATHCOL \w $RETURNCOL\`nonzero_return\`$BRANCHCOL \`parse_git_branch\`\`parse_git_dirty\` $NC\n\\$ "
+#PS1="[\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]] \`parse_git_branch\`\`parse_git_dirty\` \$ \[\033[01;31m\]❤ \[\e[m\]"
+#export PS1="[\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]] \`parse_git_branch\`\`parse_git_dirty\` \$ \[\033[01;31m\]\`nonzero_return\` \[\e[m\]"
+#export PS1="[\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]] \`parse_git_branch\`\`parse_git_dirty\` \$ \[\033[01;31m\]\`nonzero_return\` \[\e[m\]"
+export PS1="[\[`user_col`\]\u\[\033[00m\]\[\033[01;32m\]@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]] \`parse_git_branch\`\`parse_git_dirty\` \$ \[\033[01;31m\]\`nonzero_return\` \[\e[m\]"
+
+
 
 #sync dotfiles
-(
-    cd ~/dotfiles
+function syncdot() {
+	pushd ~/dotfiles > /dev/null
 	git pull -q
-	 exit
-)& disown
+	popd > /dev/null
+}
+
+if [ "$ISROOT" == "false" ]; then
+	syncdot
+fi
 
 
 #program shortcuts
@@ -38,6 +114,11 @@ alias ..="cd .."
 alias vi="vim"
 alias v="vim"
 alias me="cd ~;ls"
+
+#aliases for roundcube things
+alias confdir="pushd ~/public_html/roundcube/branches/roundcubemail/ocnfig/"
+alias olddir="pushd ~/public_html/roundcube/branches/0.4/src/"
+alias branchdir="pushd ~/public_html/roundcube/branches/"
 
 #ssh aliases
 alias facade="ssh facade.rutgers.edu"
