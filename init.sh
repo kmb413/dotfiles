@@ -46,6 +46,7 @@ else
 	fi
 fi
 ln -s ~/.bashrc ~/.bash_profile
+source ~/.bashrc
 ln -s $f/vimrc ~/.vimrc
 ln -s $f/gitconfig ~/.gitconfig
 ln -s $f/tmux_config ~/.tmux.conf
