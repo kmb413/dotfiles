@@ -126,6 +126,16 @@ function bashmod() {
 	fi
 }
 
+function swapkey() {
+	xmodmap -e 'keycode 66 = Caps_Lock' \
+	-e 'keycode 9 = Escape' \
+	-e 'remove Lock = Caps_Lock' \
+	-e 'keycode 9 = Caps_Lock' \
+	-e 'keycode 66 = Escape'
+}
+
+swapkey &> /dev/null
+
 #program shortcuts
 alias bashsave="source ~/.bashrc"
 alias vmod="vim ~/.vimrc"
