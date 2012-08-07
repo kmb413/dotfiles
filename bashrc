@@ -87,8 +87,46 @@ if [ "$ISROOT" == "false" ]; then
 fi
 
 
+if [ "`alias -p | grep bashmod`" != "" ]; then
+	unalias bashmod
+fi
+
+function bashmod() {
+	BASHDIR=`cat ~/.bashrc | head -n 1 | cut -d' ' -f2`
+	LOCALDIR=`cat ~/.bashrc | sed -n '2p' | cut -d' ' -f2`
+	DIR=""
+	IFS='/'
+	for word in $BASHDIR; do
+		if [ "$word" != "bashrc" ] && [ "$word" != "" ]; then
+			DIR="$DIR/$word"
+		fi
+	done
+	IFS=" "
+	echo $DIR
+	if [ "$1" == "main" ]; then
+		vim -c "set syn=sh" $BASHDIR
+	elif [ "$1" == "local" ]; then
+		if [ "$LOCALDIR" == "" ]; then
+			echo -e "\e[01;31m There isn't a local bashrc \e[m"
+			return 2
+		else
+			vim -c "set syn=sh" $LOCALDIR
+		fi
+	elif [ "$1" == "real" ]; then
+		vim ~/.bashrc
+	elif [ "$1" == "help" ]; then
+		echo "Usage: bashmod main|local|real|help|<ext>"
+	else
+		if [ -f "$DIR/bashrc_$1" ]; then
+			vim -c "set syn=sh" $DIR/bashrc_$1
+		else
+			echo -e "\e[01;31m Bashrc_$1 doesn't exist \e[m"
+			return 2
+		fi
+	fi
+}
+
 #program shortcuts
-alias bashmod="vim ~/.bashrc"
 alias bashsave="source ~/.bashrc"
 alias vmod="vim ~/.vimrc"
 alias xmod="vim ~/.xinitrc"
