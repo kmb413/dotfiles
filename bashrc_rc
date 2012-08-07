@@ -1,4 +1,3 @@
-source ~/dotfiles/bashrc
 #aliases for roundcube things
 alias confdir="pushd ~/public_html/roundcube/branches/roundcubemail/config/"
 alias olddir="pushd ~/public_html/roundcube/roundcube4/src/"

@@ -1,4 +1,3 @@
-source ~/dotfiles/bashrc
 #aliases for random ops
 alias kojibuild="koji build centos5-rutgers-staging"
 alias kojibuild6="koji build centos6-rutgers-staging"
