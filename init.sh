@@ -31,15 +31,15 @@ if [ -z "$f" ] ; then
   exit 1  # fail
 fi
 
-if [ "$1" == "" ]
+unlink ~/.bashrc &> /dev/null
+echo "Adding main bashrc"
+echo "source $f/bashrc" > ~/.bashrc
+if [ "$1" != "" ]
 then
-	echo 'Linking bashrc'
-	ln -s $f/bashrc ~/.bashrc
-else
 	if [ -f $f/bashrc_$1 ]
 	then
-		echo "Linking bashrc_$1"
-		ln -s $f/bashrc_$1 ~/.bashrc
+		echo "Adding bashrc_$1"
+		echo "source $f/bashrc_$1" >> ~/.bashrc
 	else
 		echo "bashrc_$1 does not exist"
 		exit 2
@@ -47,13 +47,32 @@ else
 fi
 ln -s ~/.bashrc ~/.bash_profile
 source ~/.bashrc
-ln -s $f/vimrc ~/.vimrc
-ln -s $f/gitconfig ~/.gitconfig
-ln -s $f/tmux_config ~/.tmux.conf
-ln -s $f/ssh_config ~/.ssh/config
-echo "Installing vim inkpot theme"
-mkdir -p ~/.vim/colors
-ln -s $f/inkpot.vim ~/.vim/colors/inkpot.vim
+
+if test -h ~/.ssh/config
+then
+	unlink ~/.ssh/config &> /dev/null
+fi
+if ! [ -f ~/.ssh/config ]
+then
+	echo "Installing ssh config"
+	cp $f/ssh_config ~/.ssh/config
+fi
+
+IGNORE="bashrc|ssh|init|gitignore"
+
+for file in $(git ls-files | egrep -v $IGNORE)
+do
+	echo "Installing $file"
+	if test ! -d `dirname ~/.$files`
+	then
+		mkdir -p `dirname ~/.$file`
+	fi
+	if test -h ~/.$file
+	then
+		unlink ~/.$file &> /dev/null
+	fi
+	ln -sf $f/$file ~/.$file
+done
 
 popd > /dev/null
 popd > /dev/null
