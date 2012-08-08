@@ -42,8 +42,6 @@ nonzero_return() {
 	if [ $RETVAL -ne 0 ]
 	then
 		echo "⏎$RETVAL"
-	else
-		echo "❤"
 	fi
 }
 
