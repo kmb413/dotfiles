@@ -69,68 +69,68 @@ function user_col() {
 #PS1="[\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]] \`parse_git_branch\`\`parse_git_dirty\` \$ \[\033[01;31m\]❤ \[\e[m\]"
 #export PS1="[\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]] \`parse_git_branch\`\`parse_git_dirty\` \$ \[\033[01;31m\]\`nonzero_return\` \[\e[m\]"
 #export PS1="[\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]] \`parse_git_branch\`\`parse_git_dirty\` \$ \[\033[01;31m\]\`nonzero_return\` \[\e[m\]"
-export PS1="[\[`user_col`\]\u\[\033[00m\]\[\033[01;32m\]@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]] \`parse_git_branch\`\`parse_git_dirty\` \$ \[\033[01;31m\]\`nonzero_return\` \[\e[m\]"
+export PS1="\u\[\033[01;00m\] \h\[\033[00m\] \[\033[01;00m\]\W\[\033[00m\] \[\033[01;33m\]\`nonzero_return\`\[\e[m\]\[\033[01;32m\]\$\[\033[00m\] "
 
 
 
 #sync dotfiles
-function syncdot() {
-	pushd ~/dotfiles > /dev/null
-	git pull -q
-	popd > /dev/null
-}
+#function syncdot() {
+#	pushd ~/dotfiles > /dev/null
+#	git pull -q
+#	popd > /dev/null
+#}
+#
+#if [ "$ISROOT" == "false" ]; then
+#	syncdot
+#fi
+#
+#
+#if [ "`alias -p | grep bashmod`" != "" ]; then
+#	unalias bashmod
+#fi
 
-if [ "$ISROOT" == "false" ]; then
-	syncdot
-fi
+#function bashmod() {
+#	BASHDIR=`cat ~/.bashrc | head -n 1 | cut -d' ' -f2`
+#	LOCALDIR=`cat ~/.bashrc | sed -n '2p' | cut -d' ' -f2`
+#	DIR=""
+#	IFS='/'
+#	for word in $BASHDIR; do
+#		if [ "$word" != "bashrc" ] && [ "$word" != "" ]; then
+#			DIR="$DIR/$word"
+#		fi
+#	done
+#	IFS=" "
+#	echo $DIR
+#	if [ "$1" == "main" ]; then
+#		vim -c "set syn=sh" $BASHDIR
+#	elif [ "$1" == "local" ]; then
+#		if [ "$LOCALDIR" == "" ]; then
+#			echo -e "\e[01;31m There isn't a local bashrc \e[m"
+#			return 2
+#		else
+#			vim -c "set syn=sh" $LOCALDIR
+#		fi
+#	elif [ "$1" == "real" ]; then
+#		vim ~/.bashrc
+#	elif [ "$1" == "help" ]; then
+#		echo "Usage: bashmod main|local|real|help|<ext>"
+#	else
+#		if [ -f "$DIR/bashrc_$1" ]; then
+#			vim -c "set syn=sh" $DIR/bashrc_$1
+#		else
+#			echo -e "\e[01;31m Bashrc_$1 doesn't exist \e[m"
+#			return 2
+#		fi
+#	fi
+#}
 
-
-if [ "`alias -p | grep bashmod`" != "" ]; then
-	unalias bashmod
-fi
-
-function bashmod() {
-	BASHDIR=`cat ~/.bashrc | head -n 1 | cut -d' ' -f2`
-	LOCALDIR=`cat ~/.bashrc | sed -n '2p' | cut -d' ' -f2`
-	DIR=""
-	IFS='/'
-	for word in $BASHDIR; do
-		if [ "$word" != "bashrc" ] && [ "$word" != "" ]; then
-			DIR="$DIR/$word"
-		fi
-	done
-	IFS=" "
-	echo $DIR
-	if [ "$1" == "main" ]; then
-		vim -c "set syn=sh" $BASHDIR
-	elif [ "$1" == "local" ]; then
-		if [ "$LOCALDIR" == "" ]; then
-			echo -e "\e[01;31m There isn't a local bashrc \e[m"
-			return 2
-		else
-			vim -c "set syn=sh" $LOCALDIR
-		fi
-	elif [ "$1" == "real" ]; then
-		vim ~/.bashrc
-	elif [ "$1" == "help" ]; then
-		echo "Usage: bashmod main|local|real|help|<ext>"
-	else
-		if [ -f "$DIR/bashrc_$1" ]; then
-			vim -c "set syn=sh" $DIR/bashrc_$1
-		else
-			echo -e "\e[01;31m Bashrc_$1 doesn't exist \e[m"
-			return 2
-		fi
-	fi
-}
-
-function swapkey() {
-	xmodmap -e 'keycode 66 = Caps_Lock' \
-	-e 'keycode 9 = Escape' \
-	-e 'remove Lock = Caps_Lock' \
-	-e 'keycode 9 = Caps_Lock' \
-	-e 'keycode 66 = Escape'
-}
+#function swapkey() {
+#	xmodmap -e 'keycode 66 = Caps_Lock' \
+#	-e 'keycode 9 = Escape' \
+#	-e 'remove Lock = Caps_Lock' \
+#	-e 'keycode 9 = Caps_Lock' \
+#	-e 'keycode 66 = Escape'
+#}
 
 #swapkey &> /dev/null
 
@@ -139,6 +139,15 @@ function ol () {
 	/bin/echo $(date +%F\ %T) "- $@
 " >> ~/logbook
 	/usr/bin/tail ~/logbook
+}
+
+#save the git logs
+function gitkeep {
+	branch_name=$(git symbolic-ref -q HEAD)
+	#branch_name=${branch_name:-HEAD}
+	echo ${branch_name}
+	#then find repo name
+	#git log --author KEN
 }
 
 #program shortcuts
