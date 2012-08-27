@@ -48,7 +48,7 @@ nonzero_return() {
 ISROOT=""
 
 function isroot() {
-	if id | cut -d' ' -f1 | grep -iq 'root'; then
+	if id | cut -d' ' -f1 | grep -i 'root' 2>&1 >/dev/null; then
 		ISROOT=true
 	else
 		ISROOT=false
@@ -60,7 +60,7 @@ function user_col() {
 	if [ "$ISROOT" == "true" ]; then
 		echo -ne "\033[38;5;1;01m"
 	else
-		echo -ne "\033[01;32m"
+		echo -ne "\033[01;39m"
 	fi
 }
 
@@ -69,7 +69,7 @@ function user_col() {
 #PS1="[\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]] \`parse_git_branch\`\`parse_git_dirty\` \$ \[\033[01;31m\]❤ \[\e[m\]"
 #export PS1="[\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]] \`parse_git_branch\`\`parse_git_dirty\` \$ \[\033[01;31m\]\`nonzero_return\` \[\e[m\]"
 #export PS1="[\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]] \`parse_git_branch\`\`parse_git_dirty\` \$ \[\033[01;31m\]\`nonzero_return\` \[\e[m\]"
-export PS1="\u\[\033[01;00m\] \h\[\033[00m\] \[\033[01;00m\]\W\[\033[00m\] \[\033[01;33m\]\`nonzero_return\`\[\e[m\]\[\033[01;32m\]\$\[\033[00m\] "
+export PS1="\[`user_col`\]\u\[\033[00m\] \[\033[01;00m\]\h\[\033[00m\] \[\033[01;00m\]\W\[\033[00m\] \[\033[01;33m\]\`nonzero_return\`\[\e[m\]\[\033[01;32m\]\$\[\033[00m\] "
 
 
 
