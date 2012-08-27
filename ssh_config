@@ -2,7 +2,7 @@ Host *
 	ControlMaster auto
 	ControlPath /tmp/ssh_mux_%h_%p_%r
 Host *.rutgers.edu
-	user katiepru
+	user svensken
 Host git
 	Hostname 192.168.160.222
 	Port 9922
