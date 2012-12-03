@@ -191,7 +191,7 @@ alias sauron="ssh sauron.rutgers.edu"
 #aliases for network things
 alias pubip='dig myip.opendns.com @Resolver1.opendns.com +short'
 alias locip='ifconfig | grep "inet" | head -n 1' #first inet line
-alias bandwidth='wget -O /dev/null hhtp://speedtest.qsc.de/10GB.qsc' #dont use
+alias bandwidth='wget -O /dev/null http://speedtest.qsc.de/10GB.qsc' #dont use
 alias share='python -m SimpleHTTPServer 8081' #lists current directory 
 # on [locip]:8081. Use localtunnel to make public
 
