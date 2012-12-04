@@ -34,19 +34,10 @@ set ignorecase
 set smartcase
 set number                     
 set pastetoggle=<F2>
-" set mouse=a
+set mouse=a
 set foldenable
-set foldmarker={,}
-if &diff
-	colorscheme inkpot
-	highlight Normal ctermbg=none
-	highlight String ctermbg=none
-else
-	colorscheme default
-	highlight Search ctermbg=3 ctermfg=15
-endif
+colorscheme railscasts
 set cursorline
-set cursorcolumn
 highlight CursorLine cterm=bold ctermbg=17
 highlight CursorColumn cterm=none ctermbg=17
 cnoremap vb ConqueTermVSplit<Space>bash<cr>
