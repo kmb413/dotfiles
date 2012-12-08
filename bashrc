@@ -1,6 +1,6 @@
 #export statements
 export EDITOR=vim
-export TERM='xterm-256color'
+export TERM='xterm'
 export PATH="$PATH:/sbin"
 
 parse_git_branch() {
@@ -151,42 +151,42 @@ function gitkeep {
 }
 
 #program shortcuts
-alias bashsave="source ~/.bashrc"
-alias vmod="vim ~/.vimrc"
-alias xmod="vim ~/.xinitrc"
-alias lock="xscreensaver-command -lock"
+#alias bashsave="source ~/.bashrc"
+#alias vmod="vim ~/.vimrc"
+#alias xmod="vim ~/.xinitrc"
+#alias lock="xscreensaver-command -lock"
 
 #aliases for ls
-alias ls="ls --color=always"
-alias lsa="ls -a"
-alias lsd="ls --color=always -alh | grep ^d"
-alias lf="ls --color=always -lh | grep ^d"
-alias l="ls"
-alias s="l"
-alias sl="ls"
-alias la="ls -Alh"
-alias ll="ls -lh"
+#alias ls="ls --color=always"
+#alias lsa="ls -a"
+#alias lsd="ls --color=always -alh | grep ^d"
+#alias lf="ls --color=always -lh | grep ^d"
+#alias l="ls"
+#alias s="l"
+#alias sl="ls"
+#alias la="ls -Alh"
+#alias ll="ls -lh"
 
 #aliases for random ops
-alias cc="clear"
-alias sudo="sudo -E"
+#alias cc="clear"
+#alias sudo="sudo -E"
 
 #aliases for directory navigation
-alias ..="cd .."
-alias vi="vim"
-alias v="vim"
-alias me="cd ~;ls"
+#alias ..="cd .."
+#alias vi="vim"
+#alias v="vim"
+#alias me="cd ~;ls"
 
 #aliases for roundcube things
-alias confdir="pushd ~/public_html/roundcube/branches/roundcubemail/ocnfig/"
-alias olddir="pushd ~/public_html/roundcube/branches/0.4/src/"
-alias branchdir="pushd ~/public_html/roundcube/branches/"
+#alias confdir="pushd ~/public_html/roundcube/branches/roundcubemail/ocnfig/"
+#alias olddir="pushd ~/public_html/roundcube/branches/0.4/src/"
+#alias branchdir="pushd ~/public_html/roundcube/branches/"
 
 #ssh aliases
-alias facade="ssh facade.rutgers.edu"
-alias ziti="ssh ziti.rutgers.edu"
-alias ravioli="ssh ravioli.rutgers.edu"
-alias sauron="ssh sauron.rutgers.edu"
+#alias facade="ssh facade.rutgers.edu"
+#alias ziti="ssh ziti.rutgers.edu"
+#alias ravioli="ssh ravioli.rutgers.edu"
+#alias sauron="ssh sauron.rutgers.edu"
 
 #aliases for network things
 alias pubip='dig myip.opendns.com @Resolver1.opendns.com +short'
@@ -195,4 +195,5 @@ alias bandwidth='wget -O /dev/null http://speedtest.qsc.de/10GB.qsc' #dont use
 alias share='python -m SimpleHTTPServer 8081' #lists current directory 
 # on [locip]:8081. Use localtunnel to make public
 
-
+function ll() { /bin/echo $(date +%F\ %T) "- $@
+" >> ~/lifelog ; /usr/bin/tail ~/lifelog ; }
