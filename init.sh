@@ -63,7 +63,7 @@ IGNORE="bashrc|ssh|init|gitignore"
 for file in $(git ls-files | egrep -v $IGNORE)
 do
 	echo "Installing $file"
-	if test ! -d `dirname ~/.$files`
+	if test ! -d `dirname ~/.$file`
 	then
 		mkdir -p `dirname ~/.$file`
 	fi
