@@ -60,7 +60,7 @@ function user_col() {
 	if [ "$ISROOT" == "true" ]; then
 		echo -ne "\033[38;5;1;01m"
 	else
-		echo -ne "\033[00m"
+		echo -ne ""
 	fi
 }
 

@@ -46,7 +46,7 @@ then
 	fi
 fi
 ln -s ~/.bashrc ~/.bash_profile
-source ~/.bashrc
+source .bashrc
 
 if test -h ~/.ssh/config
 then
