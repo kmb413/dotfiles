@@ -58,7 +58,7 @@ isroot
 
 function user_col() {
         if [ "$ISROOT" == "true" ]; then
-                    echo -ne "\[\033[38;5;1;01m\]\u\]"
+                    echo -ne "\[\033[38;5;1;01m\]\u\[\e[m\]"
               else
                     echo -ne "\u"
         fi
