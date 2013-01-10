@@ -30,7 +30,8 @@ set number
 set pastetoggle=<F2>
 set mouse=a
 set foldenable
-"colorscheme railscasts 
+set t_Co=256
+colorscheme railscasts_dark 
 set cursorline
 highlight CursorLine cterm=bold ctermbg=17
 highlight CursorColumn cterm=none ctermbg=17
