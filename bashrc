@@ -197,3 +197,5 @@ alias share='python -m SimpleHTTPServer 8081' #lists current directory
 
 function ll() { /bin/echo $(date +%F\ %T) "- $@
 " >> ~/lifelog ; /usr/bin/tail ~/lifelog ; }
+
+[[ -s "$HOME/.pythonbrew/etc/bashrc" ]] && source "$HOME/.pythonbrew/etc/bashrc"
