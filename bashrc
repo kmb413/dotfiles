@@ -199,3 +199,5 @@ function ll() { /bin/echo $(date +%F\ %T) "- $@
 " >> ~/lifelog ; /usr/bin/tail ~/lifelog ; }
 
 [[ -s "$HOME/.pythonbrew/etc/bashrc" ]] && source "$HOME/.pythonbrew/etc/bashrc"
+
+[[ -s "$HOME/Desktop/PyRosetta.Ubuntu-12.04LTS-r53098.64Bit/SetPyRosettaEnvironment.sh" ]] && source "$HOME/Desktop/PyRosetta.Ubuntu-12.04LTS-r53098.64Bit/SetPyRosettaEnvironment.sh"

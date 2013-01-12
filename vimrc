@@ -32,7 +32,7 @@ set mouse=a
 set foldenable
 set t_Co=256
 colorscheme railscasts_dark 
-set cursorline
+"set cursorline
 highlight CursorLine cterm=bold ctermbg=17
 highlight CursorColumn cterm=none ctermbg=17
 cnoremap vb ConqueTermVSplit<Space>bash<cr>
