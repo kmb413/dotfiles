@@ -37,10 +37,15 @@ set -o vi
 # aliases for network things
 alias pubip='dig myip.opendns.com @Resolver1.opendns.com +short'
 alias locip='ifconfig | grep "inet" | head -n 1' #first inet line
-alias bandwidth='wget -O /dev/null http://speedtest.qsc.de/10GB.qsc' #dont use
+alias bandwidth='wget -O /dev/null http://speedtest.qsc.de/10GB.qsc'
 alias share='python -m SimpleHTTPServer 8081' #lists current directory 
 # on [locip]:8081. Use localtunnel to make public
 
+# connections
+alias klab1='ssh klab1.biomaps.rutgers.edu'
+alias klab2='ssh klab2.biomaps.rutgers.edu'
+alias tyr='ssh tyr.rutgers.edu'
+alias gyges='ssh gyges.rutgers.edu'
 
 # various goodness
 
