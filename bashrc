@@ -57,3 +57,5 @@ function ll() { /bin/echo $(date +%F\ %T) "- $@
 [[ -s "$HOME/Desktop/PyRosetta.Ubuntu-12.04LTS-r53098.64Bit/SetPyRosettaEnvironment.sh" ]] && source "$HOME/Desktop/PyRosetta.Ubuntu-12.04LTS-r53098.64Bit/SetPyRosettaEnvironment.sh"
 
 
+# histidine goodness
+cat histidine
