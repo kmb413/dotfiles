@@ -58,4 +58,49 @@ function ll() { /bin/echo $(date +%F\ %T) "- $@
 
 
 # histidine goodness
-cat histidine
+echo "
+                                               
+      .i                                       
+     .;fL          :t                          
+     lfLL         :lL                          
+      C;t         tLf                          
+       CLCG      :LL                           
+       LCG@C   CCGL                            
+       CGGCCCLCCG@@                            
+       G@@G@GGCGG@@                            
+       CG@    GG@G@         svensken           
+       CG      @@@                             
+      CGG       @@                             
+     CC@@       @@                             
+  ; CCG@@       @@                             
+ ;tiCGG@@       CG                             
+  LL @@GG      CCG@                            
+      @GG@     CGG@@                           
+        GC   CCGG@CG        ,l                 
+        GLCGLGG@@@GCG      .;tL                
+         LCGG@@    GCCG    ;tLL                
+         CG@@       GGCCGClLLL                 
+         G@GG        CCGG@L                    
+          @@         GCG@@                     
+                      :f@@   :L                
+                     ,lL@G@ .lL                
+                    ,ifL @GCGLL                
+                    lffL @@@GL                 
+                     LL  CCG@@                 
+                .l      CGG@GG         ffLC    
+               ,ifl    CCG@@GCCG       ffCGG   
+               fLfiGCCLC@@   GCCG    ffLCCGG   
+                  tLLCG@@     GCCCCGCGCGGGG    
+                   CCG@        @CLGGG@G  G     
+                   GG@G@        CGG@@          
+                    l@@f        GG@G           
+                   :f;tL        CC@            
+                  ,lL LL        fC@            
+                  lLf           fC@            
+                   L           fLC G           
+                              ffLCG            
+                              LLCGG            
+                              CCGGG            
+                               GGG
+
+"
