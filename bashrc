@@ -29,7 +29,9 @@ function user_col() {
         fi
 }
 export PS1="`user_col` \h \W \[\033[01;33m\]\`nonzero_return\`\[\033[01;32m\]\$\[\e[m\] "
-###/PS1 ###
+
+# take care of environment for pyrosetta
+source ~/Desktop/PyRosetta/SetPyRosettaEnvironment.sh
 
 # vi mode for bash
 set -o vi
