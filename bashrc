@@ -29,7 +29,9 @@ function user_col() {
         fi
 }
 export PS1="`user_col` \h \W \[\033[01;33m\]\`nonzero_return\`\[\033[01;32m\]\$\[\e[m\] "
-###/PS1 ###
+
+# take care of environment for pyrosetta
+source ~/Desktop/PyRosetta/SetPyRosettaEnvironment.sh
 
 # vi mode for bash
 set -o vi
@@ -58,3 +60,50 @@ function ll() { /bin/echo $(date +%F\ %T) "- $@
 [[ -s "$HOME/PyRosetta.Ubuntu-12.04LTS-r54625.64Bit/SetPyRosettaEnvironment.sh" ]] && source "$HOME/PyRosetta.Ubuntu-12.04LTS-r54625.64Bit/SetPyRosettaEnvironment.sh"
 
 
+# histidine goodness
+echo "
+                                               
+      .i                                       
+     .;fL          :t                          
+     lfLL         :lL                          
+      C;t         tLf                          
+       CLCG      :LL                           
+       LCG@C   CCGL                            
+       CGGCCCLCCG@@                            
+       G@@G@GGCGG@@                            
+       CG@    GG@G@         svensken           
+       CG      @@@                             
+      CGG       @@                             
+     CC@@       @@                             
+  ; CCG@@       @@                             
+ ;tiCGG@@       CG                             
+  LL @@GG      CCG@                            
+      @GG@     CGG@@                           
+        GC   CCGG@CG        ,l                 
+        GLCGLGG@@@GCG      .;tL                
+         LCGG@@    GCCG    ;tLL                
+         CG@@       GGCCGClLLL                 
+         G@GG        CCGG@L                    
+          @@         GCG@@                     
+                      :f@@   :L                
+                     ,lL@G@ .lL                
+                    ,ifL @GCGLL                
+                    lffL @@@GL                 
+                     LL  CCG@@                 
+                .l      CGG@GG         ffLC    
+               ,ifl    CCG@@GCCG       ffCGG   
+               fLfiGCCLC@@   GCCG    ffLCCGG   
+                  tLLCG@@     GCCCCGCGCGGGG    
+                   CCG@        @CLGGG@G  G     
+                   GG@G@        CGG@@          
+                    l@@f        GG@G           
+                   :f;tL        CC@            
+                  ,lL LL        fC@            
+                  lLf           fC@            
+                   L           fLC G           
+                              ffLCG            
+                              LLCGG            
+                              CCGGG            
+                               GGG
+
+"
