@@ -1,7 +1,7 @@
 #export statements
 export EDITOR=vim
 export TERM='xterm-256color'
-export PATH="$PATH:/sbin"
+export PATH="$HOME/bin/bin:$PATH:/sbin"
 
 
 ### PS1 ###
@@ -55,5 +55,6 @@ function ll() { /bin/echo $(date +%F\ %T) "- $@
 [[ -s "$HOME/.pythonbrew/etc/bashrc" ]] && source "$HOME/.pythonbrew/etc/bashrc"
 
 [[ -s "$HOME/Desktop/PyRosetta.Ubuntu-12.04LTS-r53098.64Bit/SetPyRosettaEnvironment.sh" ]] && source "$HOME/Desktop/PyRosetta.Ubuntu-12.04LTS-r53098.64Bit/SetPyRosettaEnvironment.sh"
+[[ -s "$HOME/PyRosetta.Ubuntu-12.04LTS-r54625.64Bit/SetPyRosettaEnvironment.sh" ]] && source "$HOME/PyRosetta.Ubuntu-12.04LTS-r54625.64Bit/SetPyRosettaEnvironment.sh"
 
 
