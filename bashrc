@@ -54,7 +54,7 @@ function ll() { /bin/echo $(date +%F\ %T) "- $@
 
 [[ -s "$HOME/.pythonbrew/etc/bashrc" ]] && source "$HOME/.pythonbrew/etc/bashrc"
 
-[[ -s "$HOME/Desktop/PyRosetta.Ubuntu-12.04LTS-r53098.64Bit/SetPyRosettaEnvironment.sh" ]] && source "$HOME/Desktop/PyRosetta.Ubuntu-12.04LTS-r53098.64Bit/SetPyRosettaEnvironment.sh"
+[[ -s "$HOME/Desktop/PyRosetta/SetPyRosettaEnvironment.sh" ]] && source "$HOME/Desktop/PyRosetta/SetPyRosettaEnvironment.sh"
 [[ -s "$HOME/PyRosetta.Ubuntu-12.04LTS-r54625.64Bit/SetPyRosettaEnvironment.sh" ]] && source "$HOME/PyRosetta.Ubuntu-12.04LTS-r54625.64Bit/SetPyRosettaEnvironment.sh"
 
 
