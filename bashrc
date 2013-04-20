@@ -1,7 +1,8 @@
 #export statements
 export EDITOR=vim
 export TERM='xterm-256color'
-export PATH="$HOME/bin/bin:$PATH:/sbin"
+export PATH="$PATH:$HOME/local:$HOME/local/bin:/sbin"
+export LD_LIBRARY_PATH=/home/svensken/local/lib
 
 
 ### PS1 ###
