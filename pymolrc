@@ -1,0 +1,15 @@
+cd Desktop/octathorp
+run ../PyRosetta/PyMOLPyRosettaServer.py
+
+from pymol import cmd
+import time
+import slerpy
+
+
+alias x, cmd.png( str(time.time())+'a' )
+
+alias s, sinsert; sscene
+
+alias c, show car; hide lines
+
+alias ssave, sshow; mpng 1
